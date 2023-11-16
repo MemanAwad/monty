@@ -11,7 +11,7 @@
  */
 int main(int ac, char *argv[])
 {
-	stack_t *stack;
+	stack_t *stack = NULL;
 
 	if (ac != 2)
 	{
