@@ -64,6 +64,8 @@ func get_function(char *buffer)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
+		{"sub", _sub},
+		{"mul", _mul},
 		{NULL, NULL}
 	};
 	while (ins[i].opcode != NULL && strcmp(ins[i].opcode, token) != 0)
