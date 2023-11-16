@@ -21,7 +21,7 @@ int main(int ac, char *argv[])
 	}
 	if (access(argv[1], R_OK) == -1)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
 	readfile(argv[1], &stack);

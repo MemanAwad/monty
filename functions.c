@@ -29,7 +29,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	new_node->n = atoi(num);
 	new_node->next = NULL;
 	new_node->prev = NULL;
-	if (*stack == NULL)
+	if (*stack)
 	{
 		*stack = new_node;
 		return;
