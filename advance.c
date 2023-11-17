@@ -113,3 +113,28 @@ void _mod(stack_t **stack, unsigned int line_number)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _pchr - Prints the Ascii value.
+ * @stack: the stack
+ * @line_number: the line number of of the opcode.
+ */
+void _pchr(stack_t **stack, unsigned int line_number)
+{
+	int asci;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+	asci = (*stack)->n;
+	if (asci < 0 || asci > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", asci);
+}
