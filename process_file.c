@@ -73,6 +73,7 @@ func get_function(char *buffer)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", _pchr},
 		{NULL, NULL}
 	};
 	while (ins[i].opcode != NULL && strcmp(ins[i].opcode, token) != 0)
