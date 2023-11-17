@@ -25,6 +25,11 @@ int readfile(char *file, stack_t **stack)
 	}
 	while (fgets(buffer, sizeof(buffer), content) != NULL)
 	{
+		if (buffer[0] == '#')
+		{
+			line_number++;
+			continue;
+		}
 		ob_func = get_function(buffer);
 		if (ob_func == NULL)
 		{
