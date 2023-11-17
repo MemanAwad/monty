@@ -84,3 +84,32 @@ void _mul(stack_t **stack, unsigned int line_number)
 
 }
 
+
+/**
+ * _mod - function to mod the last two nodes
+ * @stack: the stack
+ * @line_number: the number if lines
+ */
+void _mod(stack_t **stack, unsigned int line_number)
+{
+	int num;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+	(*stack) = (*stack)->next;
+	num = (*stack)->n % (*stack)->prev->n;
+	(*stack)->n = num;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
